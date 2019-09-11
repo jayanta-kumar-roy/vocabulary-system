@@ -1,0 +1,13 @@
+body
+{
+	<!--background-image:url('image.jpg');
+	
+	background-color:Bisque;
+
+}
+
+h1
+{
+	
+	text-decoration:underline;
+}

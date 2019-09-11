@@ -1,0 +1,32 @@
+
+                                                             ^
+tydb34=> create table userdetails(uid SERIAL PRIMARY KEY,name VARCHAR(50) NOT NULL,age int NOT NULL,emailid VARCHAR(50) NOT NULL UNIQUE,username varchar(50) NOT NULL UNIQUE,password varchar(50) NOT NULL );
+NOTICE:  CREATE TABLE will create implicit sequence "userdetails_uid_seq" for serial column "userdetails.uid"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "userdetails_pkey" for table "userdetails"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "userdetails_emailid_key" for table "userdetails"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "userdetails_username_key" for table "userdetails"
+CREATE TABLE
+
+tydb34=> insert into userdetails(name,age,emailid,username,password)values('pranav',20,'pranav@gmail.com','pranav','pranav');
+INSERT 0 1
+tydb34=> select * from userdetails;
+ uid |  name  | age |     emailid      | username | password 
+-----+--------+-----+------------------+----------+----------
+   1 | pranav |  20 | pranav@gmail.com | pranav   | pranav
+(1 row)
+
+tydb34=> insert into userdetails(name,age,emailid,username,password)values('noella',20,'noella@gmail.com','noella','noella');
+INSERT 0 1
+
+tydb34=> select * from userdetails;
+ uid |  name   | age |      emailid      | username | password 
+-----+---------+-----+-------------------+----------+----------
+   1 | pranav  |  20 | pranav@gmail.com  | pranav   | pranav
+   2 | noella  |  20 | noella@gmail.com  | noella   | noella
+   3 | vaibhav |  21 | vaibhav@gmail.com | vaibhav  | vaibhav
+   4 | nipun   |  22 | nipun@gmail.com   | nipun    | nipun
+   6 | anuja   |  19 | anuja@gmail.com   | anuja11  | jadhav
+   7 | prachi  |  19 | prachi@gmail.com  | prachi   | prachi
+   9 | shreya  |  21 | shreya@gmail.com  | shreya   | shreya
+(7 rows)
+

@@ -1,0 +1,48 @@
+tydb34=> create table word(wid SERIAL PRIMARY KEY ,WordName text NOT NULL ,WordMeaning text NOT NULL ,WordSynonym text NOT NULL,WordAntonym text NOT NULL); 
+NOTICE:  CREATE TABLE will create implicit sequence "word_wid_seq" for serial column "word.wid"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "word_pkey" for table "word"
+CREATE TABLE
+
+
+tydb34=> \d word
+                            Table "public.word"
+   Column    |  Type   |                     Modifiers                      
+-------------+---------+----------------------------------------------------
+ wid         | integer | not null default nextval('word_wid_seq'::regclass)
+ wordname    | text    | not null
+ wordmeaning | text    | not null
+ wordsynonym | text    | not null
+ wordantonym | text    | not null
+Indexes:
+    "word_pkey" PRIMARY KEY, btree (wid)
+
+
+
+
+
+tydb34=> insert into word(WordName,WordMeaning,WordSynonym,WordAntonym) values ('Abjure','to swear off','withdraw','adhere(to)' ); 
+INSERT 0 1
+tydb34=> insert into word(WordName,WordMeaning,WordSynonym,WordAntonym) values ('Bonjour','Hello','Greeting','Bonne nuit' ); 
+INSERT 0 1
+tydb34=> insert into word(WordName,WordMeaning,WordSynonym,WordAntonym) values ('Cathedral','The principal church of diocese,with which the bishop is officially associated','Minster,temple','Unsanctioned' ); 
+INSERT 0 1
+tydb34=> insert into word(WordName,WordMeaning,WordSynonym,WordAntonym) values ('Dredge','Clear the bed of(area of water) by scooping out mud,weeds, and rubbish with a dredge','Drag,Seek','Abandon' ); 
+INSERT 0 1
+tydb34=> insert into word(WordName,WordMeaning,WordSynonym,WordAntonym) values ('Epoch','a particular period of time in history or a persons life','age,era','NOT FOUND' ); 
+INSERT 0 1
+tydb34=> insert into word(WordName,WordMeaning,WordSynonym,WordAntonym) values ('Fraternal','of or like a brother or brothers','friendly,neighborly','monovular' ); INSERT 0 1
+
+
+
+
+tydb34=> select * from word;
+ wid | wordname  |                                     wordmeaning                                      |     wordsynonym     | wordantonym  
+-----+-----------+--------------------------------------------------------------------------------------+---------------------+--------------
+   1 | Abjure    | to swear off                                                                         | withdraw            | adhere(to)
+   2 | Bonjour   | Hello                                                                                | Greeting            | Bonne nuit
+   3 | Cathedral | The principal church of diocese,with which the bishop is officially associated       | Minster,temple      | Unsanctioned
+   4 | Dredge    | Clear the bed of(area of water) by scooping out mud,weeds, and rubbish with a dredge | Drag,Seek           | Abandon
+   5 | Epoch     | a particular period of time in history or a persons life                             | age,era             | NOT FOUND
+   6 | Fraternal | of or like a brother or brothers                                                     | friendly,neighborly | monovular
+(6 rows)
+

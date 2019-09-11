@@ -1,0 +1,10 @@
+tydb34=> create table discussion(name text,message text );
+CREATE TABLE
+tydb34=> \d discussion;
+ Table "public.discussion"
+ Column  | Type | Modifiers 
+---------+------+-----------
+ name    | text | 
+ message | text | 
+
+

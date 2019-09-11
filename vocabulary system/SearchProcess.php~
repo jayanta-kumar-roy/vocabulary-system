@@ -1,0 +1,30 @@
+<?php
+	
+	$search=ucfirst($_POST['search']);
+	$conn=pg_connect("host=192.168.100.253 port=5432 dbname=tydb34 user=ty34 password=null") or die("could not connect to server");
+
+	$query="select * from word where wordname='$search'";
+	$result=pg_query($conn,$query);
+	
+	$num=pg_num_rows($result);
+	
+	if($num==0)
+	{
+		echo "WORD NOT FOUND ";
+		
+	}
+	
+	else
+	{
+		$row=pg_fetch_assoc($result);
+		echo "WORD : ".$row['wordname']."<br>";
+		echo "MEANING : ". $row['wordmeaning']."<br>";
+		echo "SYNONYM : ".$row['wordsynonym']."<br>";
+		echo "ANTONYM : ".$row['wordantonym']."<br>";	
+	
+	}
+
+
+//we wouldhave to suggest user if he wants to send email to admin for his NOT FOUND WORD.THIS WOULD BE DONE IN IF SECTION. WE MIGHT HAVE TO TAKE SEARCH WORD IN SESSION VARIABLE:
+
+?>

@@ -1,0 +1,24 @@
+tydb34=> create table admindetails(aid SERIAL PRIMARY KEY,name VARCHAR(50) NOT NULL,age int NOT NULL,emailid VARCHAR(50) NOT NULL UNIQUE,adminname varchar(50) NOT NULL UNIQUE,password varchar(50) NOT NULL );
+NOTICE:  CREATE TABLE will create implicit sequence "admindetails_aid_seq" for serial column "admindetails.aid"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "admindetails_pkey" for table "admindetails"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "admindetails_emailid_key" for table "admindetails"
+NOTICE:  CREATE TABLE / UNIQUE will create implicit index "admindetails_adminname_key" for table "admindetails"
+CREATE TABLE
+
+
+tydb34=> \d admindetails;
+                                  Table "public.admindetails"
+  Column   |         Type          |                         Modifiers                          
+-----------+-----------------------+------------------------------------------------------------
+ aid       | integer               | not null default nextval('admindetails_aid_seq'::regclass)
+ name      | character varying(50) | not null
+ age       | integer               | not null
+ emailid   | character varying(50) | not null
+ adminname | character varying(50) | not null
+ password  | character varying(50) | not null
+Indexes:
+    "admindetails_pkey" PRIMARY KEY, btree (aid)
+    "admindetails_adminname_key" UNIQUE, btree (adminname)
+    "admindetails_emailid_key" UNIQUE, btree (emailid)
+
+
